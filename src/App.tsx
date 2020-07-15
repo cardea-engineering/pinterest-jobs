@@ -1,8 +1,15 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+} from "react-router-dom"
 import About from "./pages/About"
 import Post from "./pages/Post"
 import Home from "./pages/Home"
+import NotFound from "./pages/404"
 
 function App() {
     return (
@@ -25,9 +32,13 @@ function App() {
                         <About />
                     </Route>
                     <Route path="/post/:id" children={<Post />} />
-                    <Route path="/">
+                    <Route path="/" exact>
                         <Home />
                     </Route>
+                    <Route path="/404">
+                        <NotFound />
+                    </Route>
+                    <Redirect to="/404" />
                 </Switch>
             </div>
         </Router>

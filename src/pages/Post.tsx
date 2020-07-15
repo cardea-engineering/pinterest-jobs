@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { JobData, getPost } from "../api"
 import he from "he"
+import { NoneFound } from "../components/NotFound"
 
 const Post = () => {
     const { id } = useParams()
@@ -24,7 +25,7 @@ const Post = () => {
     }
 
     if (!post) {
-        return <div>Post not found</div>
+        return <NoneFound />
     }
 
     return (

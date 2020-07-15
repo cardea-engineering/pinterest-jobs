@@ -1,3 +1,5 @@
+import _ from "lodash"
+
 export type JobData = {
     absolute_url: string
     id: number
@@ -26,7 +28,17 @@ export function getPosts() {
 }
 
 export function getPost(id: string) {
-    return get<JobData>(
-        `https://boards-api.greenhouse.io/v1/boards/pinterest/jobs/${id}`
+    return get<
+        | JobData
+        | {
+              error: string
+              status: 404
+          }
+    >(`https://boards-api.greenhouse.io/v1/boards/pinterest/jobs/${id}`).then(
+        (data) => {
+        if (_.has(data, "error")) {
+            return null
+        }
+        }
     )
 }
