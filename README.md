@@ -1,3 +1,20 @@
+# Pinterest Jobs
+
+This repo displays Pinterest jobs from an API to a SPA React application, such that users can view all of the jobs on the homepage and view the details of a post on an individual page.
+
+### The task the PR is fixing
+The pull request that you are being asked to review was created as a solution to the following problem, outline roughly on a task.
+
+### Title: Fix and standardise "Not found" behavior
+
+Currently you can navigate to any route on the app and you are not shown a "Not found message". You can go to `/whatever-you-like` and there is no message, where there would normally be a 404.
+
+Furthermore, giving a wrong ID under the `/post/:id` route causes an error and crashes the app. Clearly something has been going wrong with the handling of wrong IDs in the API.
+
+We want to display the same message across the app where there is most likely some error in the URL.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
